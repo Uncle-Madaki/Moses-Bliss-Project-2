@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Tickets</title>
+    <link rel="stylesheet" href="ticket.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="events.css"> -->
+</head>
+
+<body>
+
+    <div class="contain" id="blur">
+
+        <video src="images/Laser Lights.mp4" autoplay loop muted plays-inline class="bg-video"></video>
+
+        <div class="content">
+            <h2>GET READY FOR AN AWESOME EXPERIENCE</h2>
+
+            <!-- <a href="#blur.contain" onclick="toggle()"> Download</a> -->
+
+            <a href="/images/bliss exp.jpg" download="Bliss Experience Ticket">
+                <button class="btn" onclick="toggle()">Download Ticket</button>
+            </a>
+
+
+        </div>
+    </div>
+
+
+    <div class="countdown">
+        <h1>Countdown to Bliss Experience</h1>
+
+        <div class="timebox">
+
+            <div class="time">
+                <h2 id="days">00</h2>
+
+            </div>
+
+            <div class="time">
+                <h2 id="hours">00</h2>
+
+            </div>
+
+            <div class="time">
+                <h2 id="minutes">00</h2>
+
+            </div>
+
+            <div class="time">
+                <h2 id="seconds">00</h2>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="popup">
+        <div class="ticket-form">
+            <form action="https://formspree.io/f/manyyanz" method="post" autocomplete="on">
+                <div class="rings">
+                    <cite class="ring1"></cite>
+                    <cite class="ring2"></cite>
+                    <cite class="ring3"></cite>
+                </div>
+
+                <div class="tickets">
+                    <h2>REGISTER</h2>
+
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="Name" class="input-ticket" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="Email" class="input-ticket" required>
+
+                    <label for="name">Phone Number</label>
+                    <input type="tel" id="phone" name="Phone" class="input-ticket" required>
+
+
+
+                    <a href="/images/bliss exp.jpg" download="bliss exp.jpg">
+
+                        <button type="submit" class="btn"> SUBMIT </button>
+                    </a>
+
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+
+    <footer>
+
+        <div class="footer-icons">
+
+            <div class="socials">
+                <h3>Socials</h3>
+
+                <a href="index.html"><i class="fa-solid fa-globe"></i></a>
+                <a href="https://www.instagram.com/mosesbliss/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@MosesBliss"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://web.facebook.com/MosesBlissOfficial/"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://x.com/mosesblisslive"><i class="fa-brands fa-x-twitter"></i></a>
+
+            </div>
+
+            <div class="platforms-icons">
+                <h3>Streaming Platforms</h3>
+
+                <i class="fa-brands fa-spotify"></i>
+                <i class="fa-brands fa-deezer"></i>
+                <i class="fa-brands fa-soundcloud"></i>
+                <i class="fa-brands fa-itunes"></i>
+                <i class="fa-solid fa-music"></i>
+
+                <!-- <i class="fa-brands fa-apple music"></i> -->
+            </div>
+        </div>
+
+
+
+        <div class="info">
+            <h3>Contact <a href="mailto:mosesblissofficial@gmail.com"><i class="fa-solid fa-envelope"></i></a></h3>
+
+            <p>mosesblisoffical@gmail.com</p>
+        </div>
+
+
+        <p>&copy Moses Bliss 2024 All rights Reserved</p>
+        <p>Built with ♥ By Uncle Madaki</p>
+        <div class="footer-icontop">
+            <a href="#home"> <i class="fa-solid fa-angle"></i></a>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        function toggle() {
+            var blur = document.getElementById('blur');
+            blur.classList.toggle('active');
+
+            var popup = document.getElementById('popup');
+            popup.classList.toggle('active');
+        }
+
+
+        // Countdown Timer for Bliss Experience
+
+
+        // Set the event date and time (October 25, 2024, 4:00 PM WAT)
+        const eventDate = new Date('October 25, 2024 16:00:00 GMT+0100').getTime();
+
+        // Update the countdown every 1 millisecond
+        const countdownInterval = setInterval(function () {
+            const now = new Date().getTime();
+            const timeRemaining = eventDate - now;
+
+            // Calculate time left in days, hours, minutes, seconds, and milliseconds
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            const milliseconds = timeRemaining % 1000;
+
+            // Display the time left in each element
+            document.getElementById('days').innerHTML = days + "<span class='label'>Days</span>";
+            document.getElementById('hours').innerHTML = hours + "<span class='label'>Hours</span>";
+            document.getElementById('minutes').innerHTML = minutes + "<span class='label'>Minutes</span>";
+            document.getElementById('seconds').innerHTML = seconds + "<span class='label'>Seconds</span>";
+            document.getElementById('milliseconds').innerHTML = milliseconds + "<span class='label'>Milliseconds</span>";
+
+            // If the countdown is over, display a message
+            if (timeRemaining < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerHTML = "The event has started!";
+            }
+        }, 1); // Update every millisecond
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,362 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+
+.bg-video {
+    position: absolute;
+    right: 0;
+    top: 1px;
+    z-index: -1;
+}
+
+@media (min-aspect:16/9) {
+    .bg-video {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect:16/9) {
+    .bg-video {
+        width: auto;
+        height: 100%
+    }
+}
+
+
+
+.contain {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    transition: 0.5s ease;
+    padding: 20px;
+}
+
+.contain .content {
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.contain#blur.active {
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+}
+
+.contain .content h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+.contain .content img {
+    max-width: 100%;
+    display: block;
+}
+
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    box-shadow: 0 5px 30px rgba(0, 0, 0, .30);
+
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s ease;
+}
+
+#popup.active {
+    top: 60%;
+    left: 50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s ease;
+}
+
+
+
+/* FORM STYLING */
+
+.ticket-form {
+    border-radius: 20px;
+}
+
+.ticket-form form {
+
+    padding: .5rem;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+
+    position: relative;
+}
+
+form {
+    width: 100%;
+    height: 50%;
+}
+
+
+
+.tickets {
+    z-index: 1;
+}
+
+cite {
+    position: absolute;
+    border: 2px solid white;
+    inset: 0;
+}
+
+.ring1 {
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    animation: clockwise 6s linear infinite;
+}
+
+.ring2 {
+    border-radius: 41% 44% 56% 59% / 38% 62% 63% 37%;
+    animation: clockwise 4s linear infinite;
+}
+
+.ring3 {
+    border-radius: 41% 44% 56% 59% / 38% 62% 63% 37%;
+    animation: counterclockwise 10s linear infinite;
+}
+
+@keyframes clockwise {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes counterclockwise {
+
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+
+}
+
+form:hover .ring1 {
+    border: 6px solid orange;
+    filter: drop-shadow(0 0 20px orange);
+}
+
+form:hover .ring2 {
+    border: 6px solid red;
+    filter: drop-shadow(0 0 20px red);
+
+}
+
+form:hover .ring3 {
+    border: 6px solid #9a9a;
+    filter: drop-shadow(0 0 20px #9a9a);
+}
+
+form h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 20px;
+
+}
+
+.ticket-form {
+    /* display: inline-flex; */
+
+    display: flex;
+    align-items: start;
+    /* gap: 50px; */
+
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+
+    text-align: center;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), #9a9a);
+}
+
+
+.input-ticket {
+    width: 50vw;
+
+    padding: .5rem;
+    border: none;
+    margin-bottom: 2rem;
+    margin-top: .5rem;
+
+    font-weight: 500;
+    color: #111;
+    border-radius: 10px;
+    outline: none;
+    background: white;
+
+
+}
+
+.input-ticket:focus {
+    border: 2px solid orange;
+}
+
+label {
+    color: white;
+    text-transform: uppercase;
+}
+
+.ticket-form button,
+.content button {
+    padding: 1rem;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    border: 1px solid orange;
+}
+
+.ticket-form button:hover {
+    transform: scale(1.2);
+    transform: .5s ease;
+}
+
+
+.countdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-transform: uppercase;
+
+    height: 70vh;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url('/images/Stage\ light.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.countdown h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.timebox {
+    display: flex;
+    gap: 90px;
+}
+
+.time {
+    text-align: center;
+}
+
+.time h2 {
+    font-size: 2rem;
+}
+
+footer {
+    background-color: #9a9a;
+    width: 100%;
+
+}
+
+
+
+@media (max-width:768px) {
+
+
+
+    .ring1 {
+        height: 70%;
+        width: 100%;
+        border-radius: 100%;
+        animation: clockwise 6s linear infinite;
+    }
+
+    .ring2 {
+        height: 80%;
+        width: 100%;
+
+        border-radius: 100%;
+        animation: clockwise 4s linear infinite;
+    }
+
+    .ring3 {
+        width: 100%;
+        height: 70%;
+        border-radius: 100%;
+        animation: counterclockwise 10s linear infinite;
+    }
+
+}
+
+@media (max-width:912px) {
+
+    .countdown h1 {
+        margin-bottom: 90px;
+    }
+
+    .timebox {
+        display: flex;
+        gap: 20px;
+    }
+
+}
+
+
+@media (max-width:512px) {
+
+    .countdown {
+        padding: 20px;
+    }
+
+    .timebox {
+        display: flex;
+        /* flex-direction: column; */
+        gap: 15px;
+    }
+
+    .countdown h1 {
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .time h2 {
+        font-size: 1rem;
+    }
+}
